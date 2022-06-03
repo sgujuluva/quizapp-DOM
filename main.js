@@ -39,6 +39,15 @@ let answerB =document.getElementById("b_text");
 let answerC =document.getElementById("c_text");
 let answerD =document.getElementById("d_text");
 //click button to populate each question
+let btnClick = document.getElementById("submit");
+let index = 0;
+eachQuestion(index);
+btnClick.addEventListener("click", () => {
+    if(index < quizData.length){
+        index++;
+        eachQuestion(index);
+    }  
+})
 // to populate each question
 function eachQuestion(index){
     questionText.innerText = quizData[index].question;
