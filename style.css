@@ -9,20 +9,24 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
+    background-color: lightblue;
 }
 /* //div */
 .quiz-container{
     width:40%;
     height:70%;
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
     border :2px solid black;
     border-radius: 20px;
     background-color: cornflowerblue;
+    border : none;
    }
 
 .quiz-container .quiz-header h2{
     text-align: center;
-    font-size: xx-large;
-    padding :3.5rem;
+    font-size: xx-large;  
 }
 .quiz-container .quiz-header ul{
     display : flex;
@@ -37,11 +41,22 @@ body{
    align-items: center;
    font-size: large;
 }
-button{
+input[type="radio"]{
+    width:1.2rem;
+    height:1.2rem;
+}
+.quiz-container button{
     width:70%;
     height:4rem;
     background-color: blueviolet;
     border-radius: 20px;
-    margin :5rem;
+    margin :3rem auto;
     font-size: x-large;
+    border :none;
+    box-shadow: 3px 6px 10px pink;
+    transition: 0.5s;
+}
+.quiz-container button:hover{
+    width :50%;
+    transition: 0.5s;
 }
