@@ -38,6 +38,8 @@ let answerA =document.getElementById("a_text");
 let answerB =document.getElementById("b_text");
 let answerC =document.getElementById("c_text");
 let answerD =document.getElementById("d_text");
+//radiobuttons
+let radioButton =document.querySelectorAll(".answer");
 //click button to populate each question
 let btnClick = document.getElementById("submit");
 let index = 0;
@@ -46,14 +48,22 @@ btnClick.addEventListener("click", () => {
     if(index < quizData.length){
         index++;
         eachQuestion(index);
+       
     }  
 })
 // to populate each question
 function eachQuestion(index){
+    deselect()
     questionText.innerText = quizData[index].question;
     answerA.innerText = quizData[index].a;
     answerB.innerText = quizData[index].b;
     answerC.innerText = quizData[index].c;
     answerD.innerText = quizData[index].d;
 }
+//function to deselect radio button
+function deselect(){
+    radioButton.forEach(item => 
+        item.checked = false);
+}
+    
 
