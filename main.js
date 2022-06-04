@@ -32,8 +32,9 @@ const quizData = [
         correct: "b",
     },
 ];
-
+// select the question text
 let questionText = document.getElementById("question");
+//select the answer text
 let answerA =document.getElementById("a_text");
 let answerB =document.getElementById("b_text");
 let answerC =document.getElementById("c_text");
@@ -43,17 +44,24 @@ let radioButton =document.querySelectorAll(".answer");
 //click button to populate each question
 let btnClick = document.getElementById("submit");
 let index = 0;
+let score = 0;
 eachQuestion(index);
 btnClick.addEventListener("click", () => {
     if(index < quizData.length){
         index++;
-        eachQuestion(index);
-       
+        eachQuestion(index); 
+        let checkAnswer = getSelected();
+        //console.log(answer) 
+        if(checkAnswer)     {
+            if(checkAnswer === quizData[index].correct){
+                score ++;
+            }
+        }
     }  
 })
 // to populate each question
 function eachQuestion(index){
-    deselect()
+    deselect();
     questionText.innerText = quizData[index].question;
     answerA.innerText = quizData[index].a;
     answerB.innerText = quizData[index].b;
@@ -65,5 +73,14 @@ function deselect(){
     radioButton.forEach(item => 
         item.checked = false);
 }
-    
+// function for select answer
+function getSelected(){
+    let selectedAnswer
+    radioButton.forEach(item => {
+        if(item.checked){
+            selectedAnswer = item.id;
+        }
+    })
+    return selectedAnswer
+}
 
