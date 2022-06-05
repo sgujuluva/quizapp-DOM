@@ -5,7 +5,7 @@
     - Should select an Answer and press the submit button
     - game continues till the last question
     - after that the score is displayed based on the correctness of answer
-[title](sgujuluva.github.io/quizapp-dom/)
+   [check my App](sgujuluva.github.io/quizapp-dom/)
 ![quiz app image](quizapp-github.png)
 
 - Used Tools:
@@ -15,6 +15,7 @@
     - Used DOM
     - VS code
 
+**please Note: working on last functionality- counting correct result--- will update shortly**
 Made with ❤️ by me
 
 
