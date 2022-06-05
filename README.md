@@ -5,5 +5,15 @@
     - Should select an Answer and press the submit button
     - game continues till the last question
     - after that the score is displayed based on the correctness of answer
+- Used Tools:
+    - HTML
+    - CSS
+    - JavaScript
+    - Used DOM
+    - VS code
+
+    Made with ❤️ by me
+
+
 
  
