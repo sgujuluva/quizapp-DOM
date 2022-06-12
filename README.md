@@ -17,7 +17,7 @@
 
 **please Note: working on last functionality- counting correct result--- will update shortly**  
 
-Made with ❤️ by me
+Made with ❤️ by Sangeetha
 
 
 

@@ -34,53 +34,60 @@ const quizData = [
 ];
 // select the question text
 let questionText = document.getElementById("question");
+//radiobuttons
+let answerOptions =document.querySelectorAll(".answer");
+//select new quiz
+let quiz = document.querySelector("#quiz");
 //select the answer text
 let answerA =document.getElementById("a_text");
 let answerB =document.getElementById("b_text");
 let answerC =document.getElementById("c_text");
 let answerD =document.getElementById("d_text");
-//radiobuttons
-let radioButton =document.querySelectorAll(".answer");
 //click button to populate each question
 let btnClick = document.getElementById("submit");
-let index = 0;
+
+let currentQuiz = 0;
 let score = 0;
-eachQuestion(index);
-btnClick.addEventListener("click", () => {
-    if(index < quizData.length){
-        index++;
-        eachQuestion(index); 
-        let checkAnswer = getSelected();
-        //console.log(answer) 
-        if(checkAnswer)     {
-            if(checkAnswer === quizData[index].correct){
-                score ++;
-            }
-        }
-    }  
-})
-// to populate each question
-function eachQuestion(index){
-    deselect();
-    questionText.innerText = quizData[index].question;
-    answerA.innerText = quizData[index].a;
-    answerB.innerText = quizData[index].b;
-    answerC.innerText = quizData[index].c;
-    answerD.innerText = quizData[index].d;
-}
-//function to deselect radio button
-function deselect(){
-    radioButton.forEach(item => 
-        item.checked = false);
-}
-// function for select answer
-function getSelected(){
-    let selectedAnswer
-    radioButton.forEach(item => {
-        if(item.checked){
-            selectedAnswer = item.id;
-        }
-    })
-    return selectedAnswer
+
+loadQuiz();
+
+function loadQuiz(){
+    deselectAnswers();
+    let currentQuizData = quizData[currentQuiz];
+    questionText.innerText = currentQuizData.question;
+    answerA.innerText = currentQuizData.a;
+    answerB.innerText = currentQuizData.b;
+    answerC.innerText = currentQuizData.c;
+    answerD.innerText = currentQuizData.d;
 }
 
+function deselectAnswers(){
+    answerOptions.forEach(answerOption => answerOption.checked = false);
+}
+
+function getSelected(){
+    let answer;
+    answerOptions.forEach(answerOption =>{
+        if(answerOption.checked ){
+             answer = answerOption.id;
+        } 
+
+        })
+        return answer;
+}
+
+btnClick.addEventListener("click", () => {
+    let userAnswer = getSelected();
+    if(userAnswer){
+        if(userAnswer === quizData[currentQuiz].correct){
+            score++;
+        }
+        currentQuiz++;
+        if(currentQuiz < quizData.length){
+            loadQuiz();
+        }else{
+            quiz.innerHTML = `<h2> You answered correctly at ${score} / ${quizData.length} questions`
+        }
+    }
+   
+})
