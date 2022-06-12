@@ -18,6 +18,7 @@ body{
     display : flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     border :2px solid black;
     border-radius: 20px;
     background-color: cornflowerblue;
@@ -33,21 +34,23 @@ body{
     flex-direction: column;
     line-height: 3rem;
     padding-left: 2rem;
+    margin-top: 2rem;
 }
 .quiz-container .quiz-header ul li{
-    display : flex;
-  
+    display : flex; 
    width:100%;
    align-items: center;
-   font-size: large;
+   font-size: x-large;
+   font-weight: 500;
 }
 input[type="radio"]{
     margin-right: 2rem;
     width:1.2rem;
     height:1.2rem;
+    
 }
 .quiz-container button{
-    width:70%;
+       width:70%;
     height:4rem;
     background-color: blueviolet;
     border-radius: 20px;
@@ -60,4 +63,9 @@ input[type="radio"]{
 .quiz-container button:hover{
     width :50%;
     transition: 0.5s;
+}
+h2{
+    font-size: xx-large;
+    text-align: center;
+    
 }
